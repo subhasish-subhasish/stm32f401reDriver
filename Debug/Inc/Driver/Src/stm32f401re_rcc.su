@@ -1,0 +1,11 @@
+../Inc/Driver/Src/stm32f401re_rcc.c:7:13:RCC_SetAHBPrescaler	16	static
+../Inc/Driver/Src/stm32f401re_rcc.c:15:13:RCC_SetAPB1Prescaler	16	static
+../Inc/Driver/Src/stm32f401re_rcc.c:22:13:RCC_SetAPB2Prescaler	16	static
+../Inc/Driver/Src/stm32f401re_rcc.c:30:13:RCC_SetSystemClock	16	static
+../Inc/Driver/Src/stm32f401re_rcc.c:42:13:RCC_ConfigPLL	16	static
+../Inc/Driver/Src/stm32f401re_rcc.c:62:6:ClockConfig	16	static
+../Inc/Driver/Src/stm32f401re_rcc.c:72:10:RCC_GetSystemClkVal	16	static
+../Inc/Driver/Src/stm32f401re_rcc.c:90:10:RCC_GetAHBClkVal	24	static
+../Inc/Driver/Src/stm32f401re_rcc.c:108:10:RCC_GetPCLK1Value	24	static
+../Inc/Driver/Src/stm32f401re_rcc.c:126:10:RCC_GetPCLK2Value	24	static
+../Inc/Driver/Src/stm32f401re_rcc.c:143:11:RCC_GetPLLOutputClock	40	static

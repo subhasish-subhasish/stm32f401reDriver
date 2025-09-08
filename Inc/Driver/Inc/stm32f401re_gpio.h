@@ -72,15 +72,9 @@ typedef struct
 //This is a Handle structure for a GPIO pin
 typedef struct
 {
-	GPIO_RegDef_t *pGPIOx;       		/*!< This holds the base address of the GPIO port to which the pin belongs >*/
-	GPIO_PinConfig_t GPIO_PinConfig;   /*!< This holds GPIO pin configuration settings >*/
+	GPIO_RegDef_t *pGPIOx;
+	GPIO_PinConfig_t GPIO_PinConfig;
 }GPIO_Handle_t;
-
-
-
-
-
-
 
 /******************************************************************************************
  *								APIs supported by this driver

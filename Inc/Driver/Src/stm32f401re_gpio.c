@@ -30,12 +30,8 @@ void GPIO_PeriClockControl(GPIO_RegDef_t *pGPIOx, uint8_t EnorDi)
 		}else if (pGPIOx == GPIOH)
 		{
 			GPIOH_PCLK_EN();
-		}else if (pGPIOx == GPIOI)
-		{
-			GPIOI_PCLK_EN();
 		}
-	}
-	else
+	}else
 	{
 		if(pGPIOx==GPIOA)
 		{
@@ -61,13 +57,8 @@ void GPIO_PeriClockControl(GPIO_RegDef_t *pGPIOx, uint8_t EnorDi)
 		}else if (pGPIOx == GPIOH)
 		{
 			GPIOH_PCLK_DI();
-		}else if (pGPIOx == GPIOI)
-		{
-			GPIOI_PCLK_DI();
 		}
 	}
-
-
 }
 //2. intilize the port
 void GPIO_Init(GPIO_Handle_t *pGPIOHandle)
@@ -163,11 +154,7 @@ void GPIO_DeInit(GPIO_RegDef_t *pGPIOx)
 	}else if (pGPIOx == GPIOH)
 	{
 		GPIOH_REG_RESET();
-	}else if (pGPIOx == GPIOI)
-	{
-		GPIOI_REG_RESET();
 	}
-
 }
 
 uint8_t GPIO_ReadFromInputPin(GPIO_RegDef_t *pGPIOx, uint8_t PinNumber)
@@ -181,11 +168,7 @@ uint8_t GPIO_ReadFromInputPin(GPIO_RegDef_t *pGPIOx, uint8_t PinNumber)
 
 uint16_t GPIO_ReadFromInputPort(GPIO_RegDef_t *pGPIOx)
 {
-	uint16_t value;
-
-	value = (uint16_t)pGPIOx->IDR;
-
-	return value;
+	return (uint16_t)pGPIOx->IDR;
 }
 
 void GPIO_WriteToOutputPin(GPIO_RegDef_t *pGPIOx, uint8_t PinNumber, uint8_t Value)
@@ -254,10 +237,9 @@ void GPIO_IRQInterruptConfig(uint8_t IRQNumber, uint8_t EnorDi)
 
 void GPIO_IRQPriorityConfig(uint8_t IRQNumber,uint32_t IRQPriority)
 {
-	//1. first lets find out the interrypt priority reg register
-	uint8_t iprx = IRQNumber / 4;                                                       //stores which NVIC_PR_BASE_ADDR base reg should be selected
-	uint8_t iprx_section  = IRQNumber %4;												//Each NVIC_PR_BASE_ADDR Has four section now we have to select which section I have to select
-
+	//1. first lets find out the interrypt priority register
+	uint8_t iprx = IRQNumber / 4;
+	uint8_t iprx_section  = IRQNumber %4;
 	uint8_t shift_amount = ( 8 * iprx_section) + ( 8 - NO_PR_BITS_IMPLEMENTED);			//Between 8 bit only first 4 bit of msb are uses for priority selection
 
 	*(  NVIC_PR_BASE_ADDR + iprx ) |=  ( IRQPriority << shift_amount );

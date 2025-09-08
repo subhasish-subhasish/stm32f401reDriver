@@ -17,6 +17,9 @@ void SPI_PeriClockControl(SPI_RegDef_t *pSPIx, uint8_t EnorDi){
 		}else if(pSPIx==SPI3)
 		{
 			SPI3_PCLK_EN();
+		}else if(pSPIx==SPI3)
+		{
+			SPI4_PCLK_EN();
 		}
 	}
 	else
@@ -30,6 +33,9 @@ void SPI_PeriClockControl(SPI_RegDef_t *pSPIx, uint8_t EnorDi){
 		}else if(pSPIx==SPI3)
 	    {
 			SPI3_PCLK_DI();
+		}else if(pSPI==SPI4)
+		{
+			SPI4_PCLK_DI();
 		}
 	}
 }
@@ -214,15 +220,15 @@ void SPI_IRQHandling(SPI_Handle_t *pHandle)
 {
 	uint8_t temp1,temp2;
 	//lets check for txe
-	temp1= pHandle->pSPIx->SR &(1<<SPI_SR_TXE);
-	temp2= pHandle->pSPIx->CR2 &(1<<SPI_CR2_TXEIE);
+	temp1 = pHandle->pSPIx->SR &(1<<SPI_SR_TXE);
+	temp2 = pHandle->pSPIx->CR2 &(1<<SPI_CR2_TXEIE);
 
 	if(temp1 && temp2)
 	{
 		spi_txe_interrupt_handle(pHandle);
 	}
-	temp1=pHandle->pSPIx->SR &(1<<SPI_SR_RXNE);
-	temp1=pHandle->pSPIx->CR2 &(1<<SPI_CR2_RXNEIE);
+	temp1 = pHandle->pSPIx->SR &(1<<SPI_SR_RXNE);
+	temp1 = pHandle->pSPIx->CR2 &(1<<SPI_CR2_RXNEIE);
 	if(temp1 && temp2)
 	{
 		spi_rxe_interrupt_handle(pHandle);

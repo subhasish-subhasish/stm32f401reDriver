@@ -189,13 +189,9 @@ void USART_PeriClockControl(USART_RegDef_t *pUSARTx, uint8_t EnorDi)
 		}else if (pUSARTx == USART2)
 		{
 			USART2_PCCK_EN();
-		}else if (pUSARTx == USART3)
+		}else if (pUSARTx == USART6)
 		{
-			USART3_PCCK_EN();
-		}
-		else if (pUSARTx == UART4)
-		{
-			UART4_PCCK_EN();
+			USART6_PCCK_EN();
 		}
 	}
 	else
@@ -206,12 +202,9 @@ void USART_PeriClockControl(USART_RegDef_t *pUSARTx, uint8_t EnorDi)
 		}else if (pUSARTx == USART2)
 		{
 			USART2_PCCK_DI();
-		}else if (pUSARTx == USART3)
+		}else if (pUSARTx == USART6)
 		{
-			USART3_PCCK_DI();
-		}else if (pUSARTx == UART4)
-		{
-			UART4_PCCK_DI();
+			USART6_PCCK_DI();
 		}
 	}
 

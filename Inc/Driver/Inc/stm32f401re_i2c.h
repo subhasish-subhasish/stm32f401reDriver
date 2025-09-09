@@ -31,16 +31,16 @@ typedef struct
 #define I2C_BUSY_IN_RX			1
 #define I2C_BUSY_IN_TX			2
 
-//@I2C_SCLSpeed
+//I2C_SCLSpeed
 #define I2C_SCL_SPEED_SM		100000
 #define I2C_SCL_SPEED_FM2K		200000
 #define I2C_SCL_SPEED_FM4K		400000
 
-//@2C_AckControl
+//I2C_AckControl
 #define I2C_ACK_ENABLE        1
 #define I2C_ACK_DISABLE       0
 
-//@I2C_FMDutyCycle
+//I2C_FMDutyCycle
 #define I2C_FM_DUTY_2           0
 #define I2C_FM_DUTY_16_9		1
 

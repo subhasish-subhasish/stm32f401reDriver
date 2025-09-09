@@ -15,7 +15,7 @@ static void I2C_ClearADDRFlag(I2C_Handle_t *pHandle);
 static void I2C_MasterHandleTXEInterrupt(I2C_Handle_t *pI2CHandle);
 static void I2C_MasterHandleRXNEInterrupt(I2C_Handle_t *pI2CHandle);
 
-//------------------------------------------------------ALL Function Defination
+//------------------------------------------------------ALL Function Defination---------------------------------------//
 
 void I2C_PeriClockControl(I2C_RegDef_t *pI2Cx, uint8_t EnorDi)
 {
@@ -166,7 +166,7 @@ void I2C_MasterSendData(I2C_Handle_t *pI2CHandle, uint8_t *pTxBuffer, uint32_t L
 
 	//8. Generate STOP condition and master need not to wait for the completion of stop condition.
 	//   Note: generating STOP, automatically clears the BTF
-	if(Sr==I2C_DISABLE_SR)
+	if(Sr == I2C_DISABLE_SR)
 		I2C_GenerateStopCondition(pI2CHandle->pI2Cx);
 }
 void I2C_MaterReciveData(I2C_Handle_t *pI2CHandle, uint8_t *pRxBuffer, uint32_t Len, uint8_t SlaveAddr, uint8_t Sr)
@@ -407,10 +407,8 @@ void I2C_EV_IRQHandling(I2C_Handle_t *pI2CHandle)
 				}
 			}
 
-		}else if (pI2CHandle->TxRxState == I2C_BUSY_IN_RX )
-		{
-			;
 		}
+
 	}
 
 	temp3  = pI2CHandle->pI2Cx->SR1 & ( 1 << I2C_SR1_STOPF);
